@@ -1,0 +1,84 @@
+<div class="l-max-area l-login">
+    <div class="l-login-screen-container">
+      <div class="u-width-100-percent">
+        <div class="l-login__box">
+          <img class="l-login__logo" src="../../assets/youtube.webp" alt="">
+  
+          <div [ngSwitch]="currentView">
+            <ng-container *ngSwitchCase="'login'">
+              <h1 class="l-login__title">¡Bienvenido al <br> Sitio de Videos Favoritos!</h1>
+              <p class="l-login__p">Para Ingresar Introduce tu Usuario y Contraseña:</p>
+              <form class="l-login__form" [formGroup]="formularioLogin">
+                <mat-form-field class="c-input u-margin-auto" appearance="outline">
+                  <mat-label>Usuario</mat-label>
+                  <input matInput placeholder="Usuario" formControlName="usuario" (keydown.enter)="onKeydown($event)">
+                </mat-form-field>
+                <mat-form-field class="c-input u-margin-auto" appearance="outline">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" (keydown.enter)="onKeydown($event)">
+                  <button mat-icon-button matSuffix matRipple (click)="hide = !hide" [attr.aria-label]="'Hide password'">
+                    <mat-icon class="u-gray-default">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+                <button class="c-btn u-margin-bottom-30 u-margin-top-10" (click)="loginSubir()" [disabled]="!formularioLogin.valid">
+                  Ingresar
+                </button>
+                <a (click)="setView('recovery')" class="c-link u-block u-auto"> ¿Olvidaste tu Contraseña? </a>
+                <a (click)="setView('register')" class="c-link u-block u-auto"> Registrarme. </a>
+              </form>
+            </ng-container>
+  
+            <ng-container *ngSwitchCase="'recovery'">
+              <h1 class="l-login__title">¡Ingrese su nueva Contraseña!</h1>
+              <form class="l-login__form" [formGroup]="formularioRecovera">
+                <mat-form-field class="c-input u-margin-auto" appearance="outline">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" (keydown.enter)="onKeydown($event)">
+                  <button mat-icon-button matSuffix matRipple (click)="hide = !hide" [attr.aria-label]="'Hide password'">
+                    <mat-icon class="u-gray-default">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+                <mat-form-field class="c-input u-margin-auto" appearance="outline">
+                  <mat-label>Confirmar Contraseña</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordConfirm" (keydown.enter)="onKeydown($event)">
+                  <button mat-icon-button matSuffix matRipple (click)="hide = !hide" [attr.aria-label]="'Hide password'">
+                    <mat-icon class="u-gray-default">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+                <button (click)="reestablecer()" class="c-btn u-margin-bottom-30">Reestablecer Contraseña</button>
+                <a (click)="setView('login')" class="c-link u-block u-auto"> Volver al Inicio</a>
+              </form>
+            </ng-container>
+  
+            <ng-container *ngSwitchCase="'register'">
+              <h1 class="l-login__title">¡Regístrate!</h1>
+              <form class="l-login__form" [formGroup]="formularioRegistro">
+                <mat-form-field class="c-input u-margin-auto" appearance="outline">
+                  <mat-label>Nombre y Apellido</mat-label>
+                  <input matInput formControlName="nombreCompleto" (keydown.enter)="onKeydown($event)">
+                </mat-form-field>
+                <mat-form-field class="c-input u-margin-auto" appearance="outline">
+                  <mat-label>Usuario</mat-label>
+                  <input matInput formControlName="usuario" (keydown.enter)="onKeydown($event)">
+                </mat-form-field>
+                <mat-form-field class="c-input u-margin-auto" appearance="outline">
+                  <mat-label>Correo Electrónico</mat-label>
+                  <input matInput formControlName="correo" (keydown.enter)="onKeydown($event)">
+                </mat-form-field>
+                <mat-form-field class="c-input u-margin-auto" appearance="outline">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" (keydown.enter)="onKeydown($event)">
+                  <button mat-icon-button matSuffix matRipple (click)="hide = !hide" [attr.aria-label]="'Hide password'">
+                    <mat-icon class="u-gray-default">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+                <button (click)="registrar()" class="c-btn u-margin-bottom-30">Registrarme</button>
+                <a (click)="setView('login')" class="c-link u-block u-auto"> Volver al Inicio</a>
+              </form>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
