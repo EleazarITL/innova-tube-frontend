@@ -1,1 +1,300 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}  
+
+:root {
+	--secondary-blue: #000f9f;
+	--third-blue: #b9c8e6;
+	--default-gray: #a2a2a2;
+	--default-white: #ffffff;
+	--default-red: #ff0000;
+	--fc-today-bg-color: #b9c8e6;
+}
+
+.l-max-area {
+	max-width: 1920px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.u-width-100-percent {
+	width: 100%;
+}
+
+.u-width-50 {
+	width: 50%;
+}
+
+.u-margin-top {
+	margin-top: 7px;
+}
+.u-margin-top-10 {
+	margin-top: 10px;
+}
+.u-margin-bottom-30 {
+	margin-bottom: 30px;
+}
+.u-margin-right-20 {
+	margin-right: 20px;
+}
+.u-margin-bottom-10 {
+	margin-bottom: 10px;
+}
+.u-margin-bottom-5 {
+	margin-bottom: 5px;
+}
+.u-margin-auto {
+	margin: 0 auto;
+}
+.u-margin-top-20 {
+	margin-top: 20px;
+}
+.u-margin-right-50 {
+	margin-right: 50px;
+}
+.l-login {
+	min-height: 100vh;
+    background-image: url(../src/assets/Background.jpg);
+	background-position: center;
+	background-repeat: repeat;
+	background-size: cover;
+	z-index: 100;
+}
+.l-login__logo-innova {
+	margin: 0 auto;
+	display: block;
+	width: 100%;
+	max-width: 175px;
+}
+.l-login__box {
+	max-width: 500px;
+	width: 100%;
+	box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.4);
+	background-color: #ffffff;
+	margin: 30px auto 0;
+	border-radius: 20px;
+	padding-bottom: 30px;
+}
+.l-login__logo {
+	margin: 0 auto 0px;
+	max-width: 130px;
+	width: 100%;
+	display: block;
+}
+.l-login__title {
+	font-size: 18px !important;
+	font-weight: 700 !important;
+	color: var(--default-red);
+	display: block;
+	margin: 0 auto 15px !important;
+	text-align: center;
+	line-height: 25px !important;
+}
+.l-login__p {
+	font-weight: 700;
+	font-size: 1rem;
+	color: var(--default-red);
+	text-align: center;
+	margin: 0 auto 20px !important;
+	max-width: 355px;
+	display: block;
+}
+.l-login__form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+@media (max-width: 550px) {
+	.l-login__logo-innova {
+		max-width: 120px;
+		padding-top: 25px;
+	}
+	.l-login__logo {
+		max-width: 110px;
+	}
+	.l-login__box {
+		margin-top: 25px;
+	}
+}
+.l-login-screen-container{
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	flex-wrap: wrap;
+	height: 100vh;
+}
+
+.c-btn {
+	max-width: 300px;
+	width: 100%;
+	border: 2px solid var(--default-red);
+	background-color: #ffffff;
+	height: 36px;
+	font-weight: bold;
+	color: var(--default-red);
+	font-size: 16px;
+	transition: 0.3s ease-in-out all;
+	cursor: pointer;
+}
+.c-btn:hover {
+	background-color: var(--default-red);
+	color: #ffffff;
+}
+.c-btn-form {
+	max-width: 300px;
+	width: 100%;
+	border: 2px solid var(--default-red);
+	background-color: var(--default-red);
+	height: 36px;
+	font-weight: bold;
+	color: #ffffff;
+	font-size: 16px;
+	transition: 0.3s ease-in-out all;
+	cursor: pointer;
+}
+.c-btn-guardar-modal {
+	width: 40%;
+	border: 2px solid var(--default-red);
+	background-color: var(--default-red);
+	height: 36px;
+	font-weight: bold;
+	color: #ffffff;
+	font-size: 16px;
+	transition: 0.3s ease-in-out all;
+	cursor: pointer;
+	margin-bottom: 10px !important;
+}
+
+.c-btn-cancelar-modal {
+	width: 40%;
+	border: 2px solid var(--default-red) !important;
+	background-color: var(--default-white);
+	height: 36px;
+	font-weight: bold;
+	color: var(--default-red);
+	font-size: 16px;
+	transition: 0.3s ease-in-out all;
+	cursor: pointer;
+	margin-bottom: 10px !important;
+}
+@media(max-width: 380px){
+	.c-btn-guardar-modal{
+		width: 95%;
+	}
+	.c-btn-cancelar-modal{
+		width: 95%;
+	}
+}
+
+.c-input {
+	display: block;
+	max-width: 300px;
+	width: 100%;
+}
+.c-input--w150 {
+	max-width: 150px;
+}
+.c-input--w600 {
+	max-width: 600px;
+}
+
+.input-container {
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.input-container-global {
+	width: 100%;
+}
+@media only screen and (max-width: 999px) {
+	.input-container {
+		justify-content: center;
+	}
+	.l-text-area {
+		text-align: center;
+	}
+}
+@media only screen and (max-width: 800px) {
+	.c-input {
+		max-width: initial;
+		width: 100%;
+	}
+}
+.c-link {
+	color: var(--default-red);
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.u-block {
+	display: block;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .logo img {
+    max-width: 50px;
+    height: auto;
+  }
+  
+  .menu-items {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-items a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+  }
+  
+  .menu-items a:hover {
+    text-decoration: underline;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-info span {
+    margin-right: 10px;
+  }
+  
+  .user-info button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .user-info button:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .menu-items {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .menu-items a {
+      margin: 5px 0;
+    }
+  }
+  
