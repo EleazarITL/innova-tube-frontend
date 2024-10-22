@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { BehaviorSubject, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError } from 'rxjs/operators';
@@ -13,7 +13,8 @@ import { catchError } from 'rxjs/operators';
 export class LoginService {
 	constructor(
 		private http: HttpClient,
-		private snackbar: MatSnackBar) {
+		private snackbar: MatSnackBar,
+		private router: Router) {
 	}
 
 	Authenticate(usuario: string, password: string) {
@@ -33,7 +34,7 @@ export class LoginService {
 					localStorage.setItem('token', res.token);
 					localStorage.setItem('usuario', res.nombre_completo);
 					localStorage.setItem('usuario_id', res.id);
-					window.location.replace('/dashboard')
+					this.router.navigate(['/dashboard']);
 				}
 			}, (res) => {
 				console.log(res)
