@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    ip: 'http://localhost:3000/api'
+    ip: 'https://innova-tube-backend-production.onrender.com/api'
     
 }
