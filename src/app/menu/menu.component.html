@@ -2,8 +2,12 @@
   <div class="logo">
     <img src="../../assets/youtube.webp" alt="Logo" />
   </div>
-  <div class="menu-items">
-    <!-- Usar routerLinkActive para aplicar una clase activa -->
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+  <div class="menu-items" [class.active]="menuOpen">
     <a routerLink="/videos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Videos</a>
     <a routerLink="/favoritos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Favoritos</a>
     <div class="user-info">

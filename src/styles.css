@@ -242,69 +242,95 @@ body {
 	border-bottom: 2px solid red; /* Por ejemplo, para marcar que está seleccionado */
   }
 
-.navbar {
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #333;
     color: white;
-  }
-  
-  .logo img {
+    position: relative; /* Para posicionar el menú desplegable */
+}
+
+.logo img {
     max-width: 50px;
     height: auto;
-  }
-  
-  .menu-items {
+}
+
+.menu-items {
     display: flex;
     align-items: center;
-  }
-  
-  .menu-items a {
+}
+
+.menu-items a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
-  }
+}
 
-  
-  
-  .menu-items a:hover {
+.menu-items a:hover {
     text-decoration: underline;
-  }
-  
-  .user-info {
+}
+
+.user-info {
     display: flex;
     align-items: center;
-  }
-  
-  .user-info span {
+}
+
+.user-info span {
     margin-right: 10px;
-  }
-  
-  .user-info button {
+}
+
+.user-info button {
     background-color: transparent;
     border: none;
     color: white;
     cursor: pointer;
-  }
-  
-  .user-info button:hover {
-    text-decoration: underline;
-  }
-  
-  /* Estilos responsivos */
-  @media (max-width: 768px) {
-    .menu-items {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .menu-items a {
-      margin: 5px 0;
-    }
-  }
+}
 
+.user-info button:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el menú móvil */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .menu-items {
+        display: none; /* Ocultar menú en dispositivos móviles */
+        flex-direction: column; /* Cambiar a columna */
+        position: absolute; /* Posicionar el menú */
+        background-color: #333; /* Fondo del menú */
+        top: 60px; /* Justo debajo de la barra de navegación */
+        right: 0; /* Alinear a la derecha */
+        width: 100%; /* Ancho completo */
+        z-index: 1000; /* Asegurarse de que esté por encima */
+    }
+
+    .menu-items.active {
+        display: flex; /* Mostrar el menú cuando está activo */
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostrar el botón de menú */
+    }
+
+    .menu-items a {
+        margin: 10px 0; /* Espaciado entre enlaces */
+    }
+}
   .filter-bar {
 	display: flex;
 	flex-wrap: wrap;
