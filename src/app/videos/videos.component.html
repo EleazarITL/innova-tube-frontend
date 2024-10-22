@@ -1,1 +1,62 @@
-<p>videos works!</p>
+<div class="filter-bar">
+    <mat-form-field appearance="outline">
+      <mat-label>Término de búsqueda</mat-label>
+      <input matInput [(ngModel)]="searchQuery" placeholder="Buscar...">
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Resultados Máximos</mat-label>
+      <mat-select [(ngModel)]="maxResults">
+        <mat-option [value]="5">1</mat-option>
+        <mat-option [value]="5">5</mat-option>
+        <mat-option [value]="10">10</mat-option>
+        <mat-option [value]="20">20</mat-option>
+        <mat-option [value]="30">30</mat-option>
+        <mat-option [value]="40">40</mat-option>
+        <mat-option [value]="50">50</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Ordenar por</mat-label>
+      <mat-select [(ngModel)]="order">
+        <mat-option [value]="'date'">Fecha</mat-option>
+        <mat-option [value]="'relevance'">Relevancia</mat-option>
+        <mat-option [value]="'viewCount'">Número de Vistas</mat-option>
+        <mat-option [value]="'rating'">Calificación</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Duración del Video</mat-label>
+      <mat-select [(ngModel)]="videoDuration">
+        <mat-option [value]="'any'">Cualquiera</mat-option>
+        <mat-option [value]="'short'">Corto (&lt; 4 minutos)</mat-option>
+        <mat-option [value]="'medium'">Medio (4 - 20 minutos)</mat-option>
+        <mat-option [value]="'long'">Largo (&gt; 20 minutos)</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button class="btn-filter" mat-raised-button color="primary" (click)="searchVideos()">Buscar</button>
+  </div>
+  
+  <div *ngIf="loading" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+  
+  <div class="videos-container" *ngIf="!loading">
+    <div class="video-card" *ngFor="let video of videos">
+      <mat-card>
+        <img mat-card-image [src]="video.snippet.thumbnails.medium.url" alt="{{ video.snippet.title }}">
+        <mat-card-content>
+          <h3>{{ video.snippet.title }}</h3>
+          <p>{{ video.snippet.description || 'Sin descripción' }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-button color="primary" href="https://www.youtube.com/watch?v={{ video.id.videoId }}" target="_blank">Ver Video</a>
+          <a (click)="agregarFavoritos(video.id, video.snippet )" mat-button color="primary" target="_blank">Agregar a Favoritos</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  

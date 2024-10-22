@@ -1,14 +1,14 @@
 <nav class="navbar">
-    <div class="logo">
-      <img src="../../assets/youtube.webp" alt="Logo" />
+  <div class="logo">
+    <img src="../../assets/youtube.webp" alt="Logo" />
+  </div>
+  <div class="menu-items">
+    <!-- Usar routerLinkActive para aplicar una clase activa -->
+    <a routerLink="/videos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Videos</a>
+    <a routerLink="/favoritos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Favoritos</a>
+    <div class="user-info">
+      <span>{{ usuario }}</span>
+      <button (click)="cerrarSesion()">Cerrar Sesión</button>
     </div>
-    <div class="menu-items">
-      <a routerLink="/videos">Videos</a>
-      <a routerLink="/favoritos">Favoritos</a>
-      <div class="user-info">
-        <span>{{ userName }}</span>
-        <button (click)="cerrarSesion()">Cerrar Sesión</button>
-      </div>
-    </div>
-  </nav>
-  
+  </div>
+</nav>

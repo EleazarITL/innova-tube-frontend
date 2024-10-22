@@ -13,7 +13,7 @@ import { FavoritosComponent } from "./favoritos/favoritos.component";
 import { RegistroComponent } from "./registro/registro.component";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MaterialModule } from "./shared/material.module";
-
+import { RecaptchaModule } from "ng-recaptcha";
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { MaterialModule } from "./shared/material.module";
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    RecaptchaModule
   ],
   bootstrap: [AppComponent],
   providers: [

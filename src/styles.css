@@ -126,7 +126,6 @@ body {
 	justify-content: center; 
 	align-items: center; 
 	flex-wrap: wrap;
-	height: 100vh;
 }
 
 .c-btn {
@@ -237,6 +236,12 @@ body {
 	display: block;
 }
 
+.active {
+	font-weight: bold;
+	color: white;  /* Cambia el color o el estilo que prefieras */
+	border-bottom: 2px solid red; /* Por ejemplo, para marcar que está seleccionado */
+  }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -261,6 +266,8 @@ body {
     text-decoration: none;
     margin: 0 15px;
   }
+
+  
   
   .menu-items a:hover {
     text-decoration: underline;
@@ -296,5 +303,58 @@ body {
     .menu-items a {
       margin: 5px 0;
     }
+  }
+
+  .filter-bar {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	margin-top: 15px;
+	align-items: flex-start;
+  }
+
+  .btn-filter {
+	width: 100%;
+  }
+
+  .input-filter {
+	width: 100%;
+  }
+  
+  .videos-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 20px;
+  }
+  
+  .video-card {
+	margin: 10px;
+  }
+  
+  .loading-spinner {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+  }
+  
+  .welcome-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+	text-align: center;
+  }
+  
+  .logo {
+	width: 150px;
+	margin-bottom: 20px;
+  }
+  
+  .welcome-message {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333; 
   }
   

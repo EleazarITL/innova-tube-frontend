@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -6,9 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-  userName: string = 'Eleazar Corona Vázquez'; 
+  usuario: string = localStorage.getItem('usuario'); 
+
+  constructor(
+    private router: Router
+  ) {
+
+  }
 
   cerrarSesion() {
-    console.log('Cerrando sesión...');
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario'); 
+    localStorage.removeItem('usuario_id'); 
+		this.router.navigate([`/login`]);
   }  
 }
